@@ -31,7 +31,7 @@ class WebhookController < ApplicationController
         when Line::Bot::Event::MessageType::Text
             message = {
               type: 'text',
-              text: 'Hey '+user
+              text: 'Hey '+user+ ', thanks for using the ravioli bot. More updates coming soon'
             }
             client.reply_message(event['replyToken'], message)
         end
