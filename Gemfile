@@ -5,6 +5,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'puma', '~> 3.7'
 gem 'line-bot-api'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'pry-rails'
 
 group :production do
   gem 'pg', '0.18.4'

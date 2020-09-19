@@ -23,19 +23,20 @@ class WebhookController < ApplicationController
     events = client.parse_events_from(body)
 
     events.each { |event|
+      response_body = JSON.parse(client.get_profile(event["source"]["userId"]).body)
+      user = response_body["displayName"]
       case event
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
             message = {
               type: 'text',
-              text: 'STOP CHIBINKO!'
+              text: 'Hey '+user
             }
             client.reply_message(event['replyToken'], message)
         end
       end
     }
-
     head :ok
   end
 end
