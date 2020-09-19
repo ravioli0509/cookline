@@ -1,4 +1,5 @@
 require 'line/bot'
+require 'dotenv/rails-now'
 
 class WebhookController < ApplicationController
 
@@ -6,8 +7,8 @@ class WebhookController < ApplicationController
 
   def client
     @client ||= Line::Bot::Client.new { |config|
-      config.channel_secret = "b5006a0a083952ddb405036effc31ce8"
-      config.channel_token = "mcqJjae/lJ3Im6KKW4mQCGwk8uQbb1PuLpcxidpcuW17xNs9ChNCdwrwKxFdDLKWcmWSEY9xj+BUQ1c9abIs93ktrCbs7TFEQauhQi+V30xhA41aJMwHf+v8ja1m/fqjnuYZZFeh0wjhGm4JobAkBQdB04t89/1O/w1cDnyilFU="
+      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
   end
 
