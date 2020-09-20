@@ -1,0 +1,2 @@
+class RakutenRecipeeConntroller < ApplicationController
+end
